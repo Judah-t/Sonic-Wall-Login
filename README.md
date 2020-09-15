@@ -14,4 +14,4 @@ Login script for SonicWall wifi login portal.
 
 ### Running
 
-###### Once you have completed the previous steps, you can start the program by opening "Login" This will keep you logged in until you close the the window. Minimize the window so it stays running in the background. 
+###### Once you have completed the previous steps, you can start the program by opening "Login.bat" This will keep you logged in until you close the the window. Minimize the window so it stays running in the background. 
