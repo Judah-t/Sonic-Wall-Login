@@ -187,24 +187,31 @@ def update_rem_time(session, rem_time):
 
 def main():
     while True:
-        print("[+] Logging in for 85 min. You will be automtaically relogged in at the end of the 85 min. To disconnect, Exit this window.")
-        print("[*] By running this program, you agree that the author will not be held responsible if there is a malfunction (in middle of a zoom class).")
-        session = setup_session()
-        login_time = 85
-        if login(session):
-            try:
-                if login_time:
-                    update_rem_time(session, login_time)
-                    keep_alive(session)
+        try:
+            print(
+                "[+] Logging in for 85 min. You will be automtaically relogged in at the end of the 85 min. To disconnect, Exit this window.")
+            print(
+                "[*] By running this program, you agree that the author will not be held responsible if there is a malfunction (in middle of a zoom class).")
+            session = setup_session()
+            login_time = 85
+            if login(session):
+                try:
+                    if login_time:
+                        update_rem_time(session, login_time)
+                        keep_alive(session)
 
-                else:
+                    else:
 
-                    persist(session)
-                    print("[+] Setting up Session")
+                        persist(session)
+                        print("[+] Setting up Session")
 
 
-            except KeyboardInterrupt:
-                print("\n[-] Exiting ...\n")
+                except KeyboardInterrupt:
+                    print("\n[-] Exiting ...\n")
+                    exit()
+        except KeyboardInterrupt:
+            print("\n[-] Exiting ...\n")
+            exit()
 
 
 main()
