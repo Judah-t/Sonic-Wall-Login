@@ -66,13 +66,13 @@ PASSWORD = cred[1]
 print(f"[+] Logging In as: {UNAME}")
 
 
-BEAT_INTERVAL = 15
+BEAT_INTERVAL = 10
 MIN_RELOGIN = 10
 
 DOMAIN = 'https://10.20.51.1/'
 
 def snooze(factor):
-    ONE_MINUTE = 60
+    ONE_MINUTE = 30
     time.sleep(ONE_MINUTE * factor)
 
 def generate_cookie():
@@ -146,7 +146,7 @@ def persist(session):
                 set_cookies(session)
                 logged_in = login(session)
             else:
-                snooze(5)
+                snooze(1)
 
         except (requests.exceptions.ConnectionError):
             snooze(1)
@@ -172,7 +172,7 @@ def keep_alive(session):
             t = session.post(DOMAIN + "usrHeartbeat.cgi", verify=False)
             logged_in = is_logged_in(t)
             if logged_in:
-                snooze(5)
+                snooze(1)
 
         except (requests.exceptions.ConnectionError):
             snooze(1)
